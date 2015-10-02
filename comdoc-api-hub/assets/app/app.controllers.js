@@ -1,7 +1,7 @@
 /* Structure Controllers  */
 app.controller('NavigationController', function($scope, ROOT, ngProgressFactory, $window) {
 	$scope.Root = ROOT;
-	$scope.brand = 'Sharp Vision';
+	$scope.brand = 'ComDoc';
     $scope.isCollapsed = true;
     $scope.progressbar = ngProgressFactory.createInstance();
 	$scope.progressbar.setColor('#02bbff');
@@ -235,18 +235,18 @@ app.controller('HomeController', function($scope, ROOT) {
 	$scope.top = {
 		slider: [
 			{
-				heading: "Responsive",
-				description: "Proin ut quam eros. Donec sed lobortis diam. Nulla nec odio lacus. Quisque porttitor egestas dolor in placerat. Nunc vehicula dapibus ipsum. Duis venenatis risus non nunc fermentum dapibus.",
+				heading: "믿을 수 있는 컴퓨터수리, ComDoc",
+				description: "내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오.",
 				image: ROOT+"/assets/img/parallax_slider/2.png"
 			},
 			{
-				heading: "Using the best",
-				description: "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut dapibus lobortis suscipit. Vivamus sed eros nec odio volutpat lacinia.",
+				heading: "합리적인 컴퓨터수리, ComDoc",
+				description: "내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오.",
 				image: ROOT+"/assets/img/parallax_slider/3.png"
 			},
 			{
-				heading: "Easy to use",
-				description: "Aenean tempus dui eget felis blandit at fringilla urna ultrices. Suspendisse feugiat, ante et viverra lacinia, lectus sem lobortis dui, ultricies consectetur leo mauris at tortor.",
+				heading: "쉽고 빠른 컴퓨터수리, ComDoc",
+				description: "내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오.",
 				image: ROOT+"/assets/img/parallax_slider/1.png"
 			},
 		],
@@ -256,18 +256,6 @@ app.controller('HomeController', function($scope, ROOT) {
 			ROOT+'/assets/img/big/big-4.jpg'
 		]
 	};
-	$scope.clients = [
-		ROOT+'/assets/img/clients/logo-1.png',
-        ROOT+'/assets/img/clients/logo-2.png',
-        ROOT+'/assets/img/clients/logo-3.png',
-        ROOT+'/assets/img/clients/logo-4.png',
-        ROOT+'/assets/img/clients/logo-5.png',
-        ROOT+'/assets/img/clients/logo-6.png',
-        ROOT+'/assets/img/clients/logo-7.png',
-        ROOT+'/assets/img/clients/logo-8.png',
-        ROOT+'/assets/img/clients/logo-9.png',
-        ROOT+'/assets/img/clients/logo-10.png'
-	];
 });
 
 app.controller('AboutController', function($scope, ROOT) {
