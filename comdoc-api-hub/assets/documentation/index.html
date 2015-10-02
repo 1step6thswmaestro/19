@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Documentation</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="styles.css" rel="stylesheet">
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Sharp Vision V2</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Documentation!</h1>
+        <p>Lets Get Started</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <legend>Setting up Angular Js Version</legend>
+      <div class="row">
+        <div class="col-md-4">
+          <h2>Angular JS <small class="text-muted pull-right">Step One</small></h2>
+          <p>
+			  In app.module.js change the ROOT on line 3 constant value to your website and path the theme is in.<br><br>Same goes for the base href in the index.html file on line 4.
+          </p>
+          <div class="well">	
+          	app.module.js<br>
+	          <code>
+	          	app.constant('ROOT', 'http://website.com/SharpVisionV2/angular');
+	          </code>
+          </div>
+          <div class="well">
+          index.html<br>
+          <code>
+          	&lt;base href=&quot;/SharpVisionV2/angular/&quot;&gt;
+          </code>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <h2>Angular JS <small class="text-muted pull-right">Step Two</small></h2>
+          <p>
+          	Create an .htaccess file and populate it with the following code.
+			 <div class="well">
+	          .htaccess<br>
+	          <code>
+	          RewriteCond %{REQUEST_FILENAME} -s [OR]
+				RewriteCond %{REQUEST_FILENAME} -l [OR]
+				RewriteCond %{REQUEST_FILENAME} -d
+				RewriteRule ^.*$ - [NC,L]
+				
+				RewriteRule ^(.*) index.html [NC,L]
+	          </code>
+			  </div>
+          </p>
+       </div>
+        <div class="col-md-4">
+          <h2>Angular JS <small class="text-muted pull-right">Step Three</small></h2>
+          <p>
+          	Change the name to whatever you want and your good to go.
+			 <div class="well">
+			 app.controllers.js
+	          <br>
+	          <code>
+			  	$scope.brand = 'whatever you want'
+	          </code>
+			  </div>
+          </p>
+       </div>
+      </div>
+      <div class="row" style="margin-top:200px;">
+        <div class="col-xs-12">
+          <h2>Angular JS <small class="text-muted pull-right">Top Section</small></h2>
+          <p>
+			 The top section is very simple to user. Just paste in the following into the template you want it to be in.
+			 <br><br>
+			 The sizes by class can be 'large', 'medium' or simply just 'top-parallax'.
+          </p>
+          <div class="well">	
+          	app.module.js<br>
+	          <code>
+	          	&lt;div class=&quot;top-parallax&quot; ng-include src=&quot;'app/views/structure/top.tpl.html'&quot; parallax parallax-ratio=&quot;0.2&quot;&gt;&lt;/div&gt;
+	          </code>
+          </div>
+          <p>
+			 And paste in the following into the the controller which corresponds to the template.
+			 <br><br>
+			 Choose what you want by including any of the following possible options
+          </p>
+          <div class="well">
+          app.controllers.html<br>
+          <pre>
+          <code>
+          	$scope.top = {
+			    //Slider
+			    slider: [
+			        {
+			            heading: "Slider",
+			            description: "describe",
+			            image: 'image'
+			        }
+			    ],
+			    //background Image/'s
+			    backstretch: [
+			        'image'
+			    ]
+			    //pricing
+			    pricing: [
+			        {
+			            width: "col-xs-12 col-sm-4 col-md-4 col-lg-4",
+			            title: "Title",
+			            list: [
+			                "Lorem ipsum",
+			                "dolor sit",
+			                "sit amet",
+			                "Fusce nec"
+			            ],
+			            price: "$29.99 / month",
+			            button: "Select plan"
+			        }
+			    ]
+			    //blog
+			    author: "James Don",
+			    date: "05/02/13",
+			    //error pages
+			    error: {
+			        number: "500",
+			        sub: "Oops, there was an error",
+			        description: "But don't worry, we will fix it soon.",
+			        search: false
+			    },
+			    //title
+			    title: "About",
+			    //forms
+			    register: true,
+			    login: true,
+			};
+          </code>
+          </pre>
+          </div>
+        </div>
+      </div>
+        <div class="row" style="margin-top:200px;">
+        <div class="col-xs-12">
+          <h2>Angular JS <small class="text-muted pull-right">BOWER AND GRUNT</small></h2>
+          <p>
+			  If you wish to use Grunt and Bower simply move all the contents from the bowergrunt folder into the folder with index.html.<br><br>
+			 These should include.
+			 <br><br>bower.json
+			 <br>Gruntfile.js
+			 <br>package.json<br><br>
+          </p>
+          <p>
+	          More info on both at <a href="http://gruntjs.com/">Grunt</a> and <a href="http://bower.io/">Bower</a>
+          </p>
+          <p>
+          	Grunt runs on Node.js, so if you don't have npm installed already, go ahead and install it. Lets also install git.<br><br>In your terminal run:
+          </p>
+		<div class="well">
+          <code>
+          	apt-get install npm
+          </code><br>
+          <code>
+			apt-get install nodejs-legacy
+		 </code><br>
+          <code>
+			apt-get install git
+          </code>
+		</div>
+			<p>
+          	Now lets install Bower and grunt
+          </p>
+		<div class="well">
+          <code>
+			npm install -g bower
+          </code><br>
+          <code>
+			npm install -g grunt-cli
+          </code>
+		</div>
+		<p>Now lets install the grunt dependencies</p>
+		<div class="well">
+          <code>
+			npm install grunt
+          </code><br>
+          <code>
+			npm install grunt-contrib-concat
+          </code><br>
+          <code>
+			npm install grunt-contrib-less
+          </code><br>
+          <code>
+			npm install grunt-contrib-uglify
+          </code><br>
+          <code>
+			npm install grunt-contrib-watch
+          </code>
+		</div>
+		<p>And finally lets run bower</p>
+		<div class="well">
+          <code>
+			bower install
+          </code>
+		</div>
+		<p>Run the following to activate grunt</p>
+		<div class="well">
+          <code>
+			grunt
+          </code>
+		</div>
+		<p>
+			Now in the index.html you can replace all the scripts except the google maps api scripts and the app scripts, to this:
+		</p>
+		<div class="well">
+			<code>
+				&lt;script src=&quot;assets/build/scripts.js&quot;&gt;&lt;/script&gt;
+			</code>
+		</div>
+		<p>
+			Same goes for styles, except bootstrap.
+		</p>
+		<div class="well">
+			<code>
+				&lt;link href=&quot;assets/build/styles.min.css&quot; rel=&quot;stylesheet&quot;&gt;
+			</code>
+		</div>
+        </div>
+        </div>
+        <div class="row" style="margin-top:200px;">
+        <div class="col-xs-12">
+          <h2>Angular JS <small class="text-muted pull-right">Notes</small></h2>
+          <p>
+          	Because of conflicting code between angular-flexslider and ui bootstrap we have to do the following.
+          </p>
+          <div class="well">
+          	angular-flexslider.js on line 15
+          	<code>
+          		match = (attr.slide || attr.flexSlide).match(/^\s*(.+)\s+in\s+(.*?)(?:\s+track\s+by\s+(.+?))?\s*$/);
+          	</code><br>
+          	replace with
+          	<code>
+          		match = (attr.fslide || attr.flexSlide).match(/^\s*(.+)\s+in\s+(.*?)(?:\s+track\s+by\s+(.+?))?\s*$/);
+          	</code>
+          </div>
+        </div>
+        </div>
+
+      <hr>
+
+      <footer>
+        <p>&copy; Sharp Vision 2015</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+  </body>
+</html>

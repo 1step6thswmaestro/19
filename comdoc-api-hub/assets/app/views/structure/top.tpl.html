@@ -1,0 +1,139 @@
+<div class="display">
+	<div class="slider-bg" backstretch backstretch-images="$parent.top.backstretch" backstretch-duration="10550" backstretch-fade="1"></div> 
+</div>
+<section class="container">
+     <timer ng-if="$parent.top.counter" class="countdown" end-time="1451628000000">
+		<span class="item item-dd">
+			<span class="dd">{{ days }}</span>
+			<span class="label label-dd">days</span>
+		</span>
+		<span class="separator separator-dd" style="display: none;">,</span>
+		<span class="item item-hh">
+			<span class="hh-1">{{ hours }}</span>
+			<span class="label label-hh">hours</span>
+		</span>
+		<span class="separator">:</span>
+		<span class="item item-mm">
+			<span class="mm-1">{{ minutes }}</span>
+			<span class="label label-mm">minutes</span>
+		</span>
+		<span class="separator">:</span>
+		<span class="item item-ss">
+			<span class="ss-1">{{ seconds }}</span>
+			<span class="label label-ss">seconds</span>
+		</span>
+    </timer>
+    <div class="login" ng-if="$parent.top.login">
+        <div class="login-panel top">
+            <h3>Login</h3>
+            <div class="form-group">
+                <input type="text" placeholder="Username" class="form-control bordered-input">
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="Password" class="form-control bordered-input">
+            </div>
+            <div class="pull-left">
+                <a class="fpass" href="#">
+                Forgot Password?
+                </a>
+            </div>
+            <div class="pull-right">
+                <a ng-href="{{ Root }}/" class="btn blue">
+                Submit
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="register" ng-if="$parent.top.register">
+        <div class="register-panel top">
+            <h3>Sign Up</h3>
+            <form>
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" name="firstname" class="form-control bordered-input">
+            </div>
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" name="email" class="form-control bordered-input">
+            </div>
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" name="username" class="form-control bordered-input">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" name="password" class="form-control bordered-input">
+            </div>
+            <div class="form-group">
+                <label><input type="checkbox" name="terms"> I agree with the <a href="#" class="fpass">Terms and Conditions</a>.</label>
+                <input type="submit" value="Sign up" class="btn btn-info pull-right">
+            </div>
+                <div class="clearfix"></div>
+            </form>
+        </div>
+    </div>
+    <div class="row pricing-top" ng-if="$parent.top.pricing">
+        <div ng-repeat="table in $parent.top.pricing" ng-class="table.width">
+            <div class="pricing-well">
+                <h2 ng-if="table.title">
+                    {{ table.title }}
+                </h2>
+                <ul class="pricing-top-list" ng-if="table.list">
+                    <li ng-repeat="list in table.list track by $index">{{ list }}</li>
+                </ul>
+                <hr>
+                <h3 ng-if="table.price">
+                    {{ table.price }}
+                </h3>
+                <hr>
+                <p ng-if="table.button">
+                    <a class="btn transparent" href="#">
+	                    {{ table.button }}
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <flex-slider ng-if="$parent.top.slider" fslide="item in $parent.top.slider track by $index" control-nav="false" direction-nav="false" slideshow-speed="10000">
+	   	<li>
+            <div class="row">
+		    	<div class="col-xs-6 col-sm-8 col-md-8 col-lg-8">
+					<h1>{{ item.heading }}</h1>
+		            <p>{{ item.description }}</p>
+		    	</div>
+		    	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+		    		<img class="img-responsive" ng-src="{{ item.image }}" alt="responsive" />
+		    	</div>
+            </div>
+        </li>
+	</flex-slider>
+	<div class="row" ng-if="$parent.top.title">
+		<div class="title">
+	        <h1>{{ $parent.top.title }} <span class="author" ng-if="$parent.top.date">{{ $parent.top.author }}</span><span class="date" ng-if="$parent.top.date">{{ $parent.top.date }}</span></h1>
+  	    </div>
+    </div>
+    <div class="row" ng-if="$parent.top.error">
+        <div class="error-span">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            	<div class="error-number">
+                	{{ $parent.top.error.number }}
+            	</div>
+            </div>
+            <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4">
+            	<div class="error-text">	
+            		<h3>{{ $parent.top.error.sub }}</h3>
+                    <p ng-bind-html="$parent.top.error.description"></p>
+                    <form action="#" ng-if="$parent.top.error.search">
+                        <div class="input-group">
+                            <input class="form-control" type="text" placeholder="Try Again..." /> <!-- Search Bar -->
+                            <div class="input-group-btn btn-group">
+                            	<button class="btn blue" style="line-height: 0.5px; height: 34px;">Search</button>
+							</div>
+                        </div>
+                    </form>
+            	</div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="top"></section>
