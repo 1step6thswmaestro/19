@@ -24,6 +24,8 @@ npm install grunt-sync;
 npm install rc;
 npm install sails;
 npm install sails-disk;
+npm install machinepack-passwords --save;
+npm install machinepack-gravatar --save;
 
 ```
 

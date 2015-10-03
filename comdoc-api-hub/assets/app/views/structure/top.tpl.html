@@ -23,26 +23,28 @@
 			<span class="label label-ss">seconds</span>
 		</span>
     </timer>
-    <div class="login" ng-if="$parent.top.login">
-        <div class="login-panel top">
-            <h3>Login</h3>
-            <div class="form-group">
-                <input type="text" placeholder="Username" class="form-control bordered-input">
-            </div>
-            <div class="form-group">
-                <input type="text" placeholder="Password" class="form-control bordered-input">
-            </div>
-            <div class="pull-left">
-                <a class="fpass" href="#">
-                Forgot Password?
-                </a>
-            </div>
-            <div class="pull-right">
-                <a ng-href="{{ Root }}/" class="btn blue">
-                Submit
-                </a>
-            </div>
-        </div>
+    <div class="login" ng-if="$parent.top.login" ng-controller="LoginController">
+        <form ng-submit="submitLoginForm()" class="login-panel top">
+
+              <!-- E M A I L -->
+              <h3>Sign In</h3>
+              <div class="form-group">
+                  <input ng-model="loginForm.email" type="text" placeholder="Email" name="email" class="form-control">
+              </div>
+
+              <!-- P A S S W O R D -->
+              <div class="form-group">
+                  <input ng-model="loginForm.password" type="password" placeholder="Password" name="password" class="form-control">
+              </div>
+
+              <!-- S U B M I T -->
+              <button type="submit" class="btn btn-success">
+                <span ng-show="!loginForm.loading">Sign in</span>
+                <span ng-show="loginForm.loading" class="fa fa-spinner"></span>
+                <span ng-show="loginForm.loading">Signing up...</span>
+              </button>
+              <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+          </form>
     </div>
     <div class="row pricing-top" ng-if="$parent.top.pricing">
         <div ng-repeat="table in $parent.top.pricing" ng-class="table.width">
