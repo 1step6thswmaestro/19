@@ -34,7 +34,24 @@ module.exports.routes = {
 
   '/': {
     view: 'homepage'
-  }
+  },
+
+  ////////////////////////////////////////////////////////////
+  // Server-rendered HTML webpages
+  ////////////////////////////////////////////////////////////
+
+  'GET /': 'PageController.showHomePage',
+
+  ////////////////////////////////////////////////////////////
+  // JSON API
+  ////////////////////////////////////////////////////////////
+
+  // User enrollment + authentication
+  'POST /signup': 'UserController.signup',
+  'PUT /login': 'UserController.login',
+  'GET /logout': 'UserController.logout',
+
+
 
   /***************************************************************************
   *                                                                          *

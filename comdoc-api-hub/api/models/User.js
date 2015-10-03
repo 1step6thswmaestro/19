@@ -9,6 +9,42 @@ module.exports = {
 
   attributes: {
 
+    // The user's full name
+    // e.g. Nikola Tesla
+    name: {
+      type: 'string',
+      required: true
+    },
+
+    // The user's username
+    // e.g. Genius
+    username: {
+      type: 'string'
+    },
+
+    // The user's email address
+    // e.g. nikola@tesla.com
+    email: {
+      type: 'string',
+      //email: true,
+      required: true,
+      unique: true
+    },
+
+    // The encrypted password for the user
+    // e.g. asdgh8a249321e9dhgaslcbqn2913051#T(@GHASDGA
+    encryptedPassword: {
+      type: 'string',
+      required: true
+    },
+
+    // The timestamp when the the user last logged in
+    // (i.e. sent a username and password to the server)
+    lastLoggedIn: {
+      type: 'date',
+      required: true,
+      defaultsTo: new Date(0)
+    }
+
   }
 };
-
