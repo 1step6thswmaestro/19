@@ -1,6 +1,8 @@
 <div class="display">
-	<div class="slider-bg" backstretch backstretch-images="$parent.top.backstretch" backstretch-duration="10550" backstretch-fade="1"></div> 
+	<div ng-if="!$parent.top.mobilehome && !$parent.top.mobile" class="slider-bg" backstretch backstretch-images="$parent.top.backstretch" backstretch-duration="10550" backstretch-fade="1"></div> 
+  <div ng-if="$parent.top.mobilehome || $parent.top.mobile" class="slider-bg" backstretch backstretch-images="$parent.top.backstretch_xs"></div>
 </div>
+
 <section class="container">
      <timer ng-if="$parent.top.counter" class="countdown" end-time="1451628000000">
 		<span class="item item-dd">
@@ -27,7 +29,54 @@
         <form ng-submit="submitLoginForm()" class="login-panel top">
 
               <!-- E M A I L -->
-              <h3>Sign In</h3>
+              <h3>Log In</h3>
+              <div class="form-group">
+                  <input ng-model="loginForm.email" type="text" placeholder="Email" name="email" class="form-control">
+              </div>
+
+              <!-- P A S S W O R D -->
+              <div class="form-group">
+                  <input ng-model="loginForm.password" type="password" placeholder="Password" name="password" class="form-control">
+              </div>
+
+              <div class="form-group" >
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
+
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <label class="radio">
+                  <input ng-model="loginForm.type" type="radio" value="user">
+                    User
+                </label>
+                </div>
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <label class="radio">
+                  <input ng-model="loginForm.type" type="radio" value="company">
+                    Company
+                </label>
+                </div>
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
+              </div>
+
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <!-- S U B M I T -->
+                <button type="submit" class="btn btn-success">
+                  <span ng-show="!loginForm.loading">Log in</span>
+                  <span ng-show="loginForm.loading" class="fa fa-spinner"></span>
+                  <span ng-show="loginForm.loading">Loading...</span>
+                </button>
+                <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <br>
+                <a href="{{ Root }}/register">아직 회원이 아니신가요?</a>
+              </div>
+          </form>
+    </div>
+    <div class="login" ng-if="$parent.top.mobilehome" ng-controller="MobileHomeController">
+        <form ng-submit="submitLoginForm()" class="login-panel top">
+
+              <!-- E M A I L -->
+              <h3>Log In</h3>
               <div class="form-group">
                   <input ng-model="loginForm.email" type="text" placeholder="Email" name="email" class="form-control">
               </div>
@@ -39,11 +88,16 @@
 
               <!-- S U B M I T -->
               <button type="submit" class="btn btn-success">
-                <span ng-show="!loginForm.loading">Sign in</span>
+                <span ng-show="!loginForm.loading">로그인</span>
                 <span ng-show="loginForm.loading" class="fa fa-spinner"></span>
-                <span ng-show="loginForm.loading">Signing up...</span>
+                <span ng-show="loginForm.loading">로딩중...</span>
               </button>
               <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+
+              <div>
+                <br>
+                <a href="{{ Root }}/mobile/register">아직 회원이 아니신가요?</a>
+              </div>
           </form>
     </div>
     <div class="row pricing-top" ng-if="$parent.top.pricing">
@@ -71,13 +125,15 @@
     <flex-slider ng-if="$parent.top.slider" fslide="item in $parent.top.slider track by $index" control-nav="false" direction-nav="false" slideshow-speed="10000">
 	   	<li>
             <div class="row">
-		    	<div class="col-xs-6 col-sm-8 col-md-8 col-lg-8">
+		    	<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
 					<h1>{{ item.heading }}</h1>
 		            <p>{{ item.description }}</p>
 		    	</div>
-		    	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
-		    		<img class="img-responsive" ng-src="{{ item.image }}" alt="responsive" />
-		    	</div>
+<!-- 		    	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+		    		<img class="hidden-xs img-responsive" ng-src="{{ item.image }}" alt="responsive" />
+            <div class="hidden-sm hidden-md hidden-lg content-panel">
+            </div>
+		    	</div> -->
             </div>
         </li>
 	</flex-slider>

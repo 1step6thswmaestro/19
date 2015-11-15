@@ -35,21 +35,103 @@ module.exports.routes = {
   '/': {
     view: 'homepage'
   },
+  '/login': {
+    view: 'homepage'
+  },
+  '/register': {
+    view: 'homepage'
+  },
+  '/about': {
+    view: 'homepage'
+  },
+  '/contact': {
+    view: 'homepage'
+  },
+  '/repaircase': {
+    view: 'homepage'
+  },
+  '/404': {
+    view: 'homepage'
+  },
+  '/500': {
+    view: 'homepage'
+  },
+  '/mobile/home': {
+    view: 'homepage'
+  },
+  '/mobile/mypage': {
+    view: 'homepage'
+  },
+  '/mobile/register': {
+    view: 'homepage'
+  },
+
 
   ////////////////////////////////////////////////////////////
   // Server-rendered HTML webpages
   ////////////////////////////////////////////////////////////
 
-  'GET /': 'PageController.showHomePage',
+  'GET /mypage/user': 'AuthController.showHomePage',
+  'GET /mypage/user/sheet': 'AuthController.showHomePage',
+  'GET /mypage/user/sheet/:id': 'AuthController.showHomePage',
+  'GET /mypage/user/sheet/detail/:id': 'AuthController.showHomePage',
+  'GET /mypage/user/sheet/detail/after_adopted/:id': 'AuthController.showHomePage',
+  'GET /mypage/user/adopted/:sheet_id/:suggestion_sheet_id': 'AuthController.showHomePage',
+  'GET /mypage/company': 'AuthController.showHomePage',
+  'GET /mypage/company/request_sheet': 'AuthController.showHomePage',
+  'GET /mypage/company/sheet/detail/:id': 'AuthController.showHomePage',
+  'GET /mypage/company/request_sheet/detail/:id': 'AuthController.showHomePage',
+  'GET /mypage/company/sheet/:id': 'AuthController.showHomePage',
+  'GET /mypage/user/profile': 'AuthController.showHomePage',
+  'GET /mypage/user/profile/edit': 'AuthController.showHomePage',
+  'GET /mypage/company/profile': 'AuthController.showHomePage',
+  'GET /mypage/company/profile/edit': 'AuthController.showHomePage',
+  'GET /repaircase/list/:trouble_type': 'PageController.showHomePage',
+  'GET /repaircase/list/detail/:trouble_type/:id': 'PageController.showHomePage',
 
   ////////////////////////////////////////////////////////////
   // JSON API
   ////////////////////////////////////////////////////////////
 
   // User enrollment + authentication
-  'POST /signup': 'UserController.signup',
-  'PUT /login': 'UserController.login',
+  'POST /register/user': 'UserController.register',
+  'POST /register/company': 'CompanyController.register',
+  'POST /login/user': 'UserController.login', 
+  'POST /login/company': 'CompanyController.login',
   'GET /logout': 'UserController.logout',
+
+  //Sheet enrollment
+  'POST /insert/sheet': 'SheetController.insertSheet',
+  'POST /insert/suggestion_sheet': 'Suggestion_sheetController.insertSuggestionSheet',
+  
+
+  //Sheet finder & updater
+  'GET /sheets/user/:id': 'SheetController.findFromRequester',
+  'GET /suggestion_sheets/company/:id': 'Suggestion_sheetController.findFromSuggester',
+  'GET /suggestion_sheets/request_sheet/:id': 'Suggestion_sheetController.findFromRequestSheet',
+  'GET /request_sheet/suggestion_sheet/:id': 'SheetController.findFromSuggestionSheet',
+  'GET /suggestion_sheets/adopted/:sheet_id/:suggestion_sheet_id': 'Suggestion_sheetController.adopted',
+  'PUT /sheets/repairCompleted': 'SheetController.repairCompleted', //파라미터: id, final_start_date, final_end_date, final_price
+  'GET /sheets/location/:location/:company_id': 'SheetController.findFromLocation',
+
+
+  //Review finder
+  'GET /review/sheet/:id': 'ReviewController.findFromRequestSheet',
+
+  //Review enrollment
+  'POST /insert/review': 'ReviewController.insertReview',
+
+  //Repair Case finder
+  'GET /repaircase/trouble_type/:trouble_type': 'RepairCaseController.findRepairCase',
+  'GET /repaircase/trouble_type/detail/:trouble_type/:id': 'RepairCaseController.findOneRepairCaseFromId',
+
+
+  //Sending Email
+  'POST /contact-form': 'MailController.sendMail',
+
+
+  //Push Notification
+  'GET /push_notification': 'PushNotificationController.sendMsg'
 
 
 

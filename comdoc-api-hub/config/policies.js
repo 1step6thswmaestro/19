@@ -26,7 +26,19 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  // '*': true,
+  '*': true,
+  PostController: {
+    restricted: ['sessionAuth'],
+    open: true,
+    jwt: ['hasJsonWebToken']
+  },
+  AuthController: {
+    showHomePage: ['sessionAuth']
+  },
+  // PushNotificationController: {
+  //   sendMsg: ['hasJsonWebToken']
+  // }
+
 
   /***************************************************************************
   *                                                                          *

@@ -1,0 +1,155 @@
+<div class="top-parallax" ng-include src="'app/views/structure/top.tpl.html'" parallax parallax-ratio="0.2"></div>
+
+<article class="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4">
+                <div class="content-panel-title">
+                    <h2>Register - User</h2>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                <div class="content-panel">
+                    <p>ComDoc을 이용하기 위해서는 회원가입이 필요합니다.<br>이곳은 회원(사용자) 가입을 하는 페이지입니다.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="hidden-xs col-sm-8 col-md-4 col-lg-4">
+                <div class="content-panel">
+                    <p>
+
+                    </p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-4 col-lg-4">
+                <div class="content-panel">
+                    <div class="register-panel">
+                        <!-- <h3>Sign Up</h3> -->
+                        <!-- REGISTER FORM -->
+                        <form ng-submit="submitRegisterForm()" id="sign-up-form" class="form-signin" name="register">
+
+                            <!-- E M A I L -->
+
+                            <div class="control-group form-group col-md-12"
+                                  ng-class="{'has-error':register.email.$invalid &&
+                                              register.email.$dirty}">
+                                <label>* Email Address</label>
+                                <input type="email" class="form-control" placeholder="nikola@tesla.com" name="email" ng-model="registerForm.email" required >
+                                <span class="help-block has-error" ng-if="register.email.$dirty">
+                                    <span ng-show="register.email.$error.required">Email address is required.</span>
+                                    <span ng-show="register.email.$error.email">Not a valid email address.</span>
+                                </span>
+                            </div>
+
+                            <!-- P A S S W O R D -->
+
+                            <div class="control-group form-group col-md-12"
+                            ng-class="{'has-error':register.password.$invalid &&
+                                                  register.password.$dirty}">
+                                <label>* Password</label>
+                                <!-- Added the compareTo directive that compares the passowrds -->
+                                <input type="password" class="form-control" placeholder="at least 6 characters" name="password" ng-model="registerForm.password" id="password" required ng-minlength="6" compare-to="registerForm.confirmPassword" >
+                                <span class="help-block has-error" ng-if="register.password.$dirty">
+                                    <span ng-show="register.password.$error.required">Password is required.</span>
+                                    <span ng-show="register.password.$error.minlength">Password must be at least 6 characters.</span>
+                                </span>
+                            </div>
+
+                            <!-- C O N F I R M  P A S S W O R D -->
+
+                            <div class="control-group form-group col-md-12">
+                              <label>* Password Again</label>
+                              <input type="password" class="form-control" placeholder="one more time" name="confirmation" ng-model="registerForm.confirmPassword" required>
+                              <span class="help-block has-error" ng-if="register.confirmation.$dirty">
+                                <span ng-show="register.password.$error.compareTo">Password must match.</span>
+                                <span ng-show="register.confirmation.$error.required">Confirmation password is required.</span>
+                              </span>
+                            </div>
+
+                            <!-- U S E R N A M E -->
+
+                            <div class="control-group form-group col-md-12"
+                              ng-class="{'has-error':register.username.$invalid &&
+                                                    register.username.$dirty}">
+                              <label>* User Name</label>
+                              <input type="text" class="form-control" placeholder="e.g. Superman" name="username" ng-model="registerForm.username" ng-maxlength="50" required>
+                              <span class="help-block has-error" ng-if="register.username.$dirty">
+                                <span ng-show="register.username.$error.required">username is required.</span>
+                                <span ng-show="register.username.$error.maxlength">The name cannot be more than 50 characters.</span>
+                              </span>
+                            </div>
+
+                            <!-- L O C A T I O N -->
+
+                            <div class="control-group form-group col-md-12"
+                              ng-class="{'has-error':register.location.$invalid &&
+                                                    register.location.$dirty}">
+                              <label>* Location</label>
+                              <select class="form-control" name="location" ng-model="registerForm.location" required>
+                                <option>서울시 강남구</option>
+                                <option>서울시 강동구</option>
+                                <option>서울시 강북구</option>
+                                <option>서울시 강서구</option>
+                                <option>서울시 관악구</option>
+                                <option>서울시 광진구</option>
+                                <option>서울시 구로구</option>
+                                <option>서울시 금천구</option>
+                                <option>서울시 노원구</option>
+                                <option>서울시 도봉구</option>
+                                <option>서울시 동대문구</option>
+                                <option>서울시 동작구</option>
+                                <option>서울시 마포구</option>
+                                <option>서울시 서대문구</option>
+                                <option>서울시 서초구</option>
+                                <option>서울시 성동구</option>
+                                <option>서울시 성북구</option>
+                                <option>서울시 송파구</option>
+                                <option>서울시 양천구</option>
+                                <option>서울시 영등포구</option>
+                                <option>서울시 용산구</option>
+                                <option>서울시 은평구</option>
+                                <option>서울시 종로구</option>
+                                <option>서울시 중구</option>
+                                <option>서울시 중랑구</option>
+                              </select>
+                              <span class="help-block has-error" ng-if="register.location.$dirty">
+                                <span ng-show="register.location.$error.required">location is required.</span>
+                              </span>
+                            </div>
+
+                            <!-- P H O N E  N U M B E R -->
+
+                            <div class="control-group form-group col-md-12"
+                              ng-class="{'has-error':register.phone_number.$invalid &&
+                                                    register.phone_number.$dirty}">
+                              <label>* Phone Number</label>
+                              <input type="text" class="form-control" placeholder="e.g. 010-0000-0000" name="phone_number" ng-model="registerForm.phone_number" ng-maxlength="13" required>
+                              <span class="help-block has-error" ng-if="register.phone_number.$dirty">
+                                <span ng-show="register.phone_number.$error.required">phone number is required.</span>
+                                <span ng-show="register.phone_number.$error.maxlength">The phone number cannot be more than 13 characters.</span>
+                              </span>
+                            </div>
+
+                            <!-- Disable register button until the form has no errors -->
+                            <button class="btn btn-primary btn-lg btn-block" type="submit" ng-disabled="register.$invalid">
+                              <span ng-show="!registerForm.loading">Create Account</span>
+                              <span class="overlord-loading-spinner fa fa-spinner" ng-show="registerForm.loading" ></span>
+                              <span ng-show="registerForm.loading">Preparing your new account...</span>
+                            </button>
+
+                            <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="hidden-xs col-sm-8 col-md-4 col-lg-4">
+                <div class="content-panel">
+                    <p>
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>

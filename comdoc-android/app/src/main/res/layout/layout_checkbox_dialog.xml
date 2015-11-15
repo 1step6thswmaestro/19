@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dialog_height"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/checkbox_headlineTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/value_15dp"
+                android:paddingRight="@dimen/value_15dp"
+                android:paddingTop="@dimen/value_10dp"
+                android:textColor="@color/green_color"
+                android:textSize="@dimen/value_20sp" />
+
+            <RadioGroup
+                android:id="@+id/locationRadioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/location1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="서울시 강남구" />
+
+                <RadioButton
+                    android:id="@+id/location2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="서울시 강동구" />
+
+                <RadioButton
+                    android:id="@+id/location3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="서울시 강북구" />
+
+                <RadioButton
+                    android:id="@+id/location4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="서울시 강서구" />
+
+                <RadioButton
+                    android:id="@+id/location5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="서울시 관악구" />
+
+                <RadioButton
+                    android:id="@+id/location6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="서울시 광진구" />
+
+                <RadioButton
+                    android:id="@+id/location7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="서울시 구로구" />
+
+                <RadioButton
+                    android:id="@+id/location8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="서울시 금천구" />
+
+                <RadioButton
+                    android:id="@+id/location9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="서울시 노원구" />
+
+                <RadioButton
+                    android:id="@+id/location10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="서울시 도봉구" />
+
+                <RadioButton
+                    android:id="@+id/location11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="서울시 도봉구" />
+
+                <RadioButton
+                    android:id="@+id/location12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="서울시 동대문구" />
+
+                <RadioButton
+                    android:id="@+id/location13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="서울시 동작구" />
+
+                <RadioButton
+                    android:id="@+id/location14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="서울시 마포구" />
+
+                <RadioButton
+                    android:id="@+id/location15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="서울시 서대문구" />
+
+                <RadioButton
+                    android:id="@+id/location16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="서울시 서초구" />
+            </RadioGroup>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,32 @@
+<div class="top-parallax" ng-include src="'app/views/structure/top.tpl.html'" parallax parallax-ratio="0.2"></div>
+
+<article class="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="content-panel-title">
+                    <h2>나의 프로필</h2>
+                </div>
+                <div class="content-panel">
+                  <p>
+                    <a class="btn btn-large btn-block btn-info" href="{{ Root }}/mypage/user/profile/edit">프로필 수정하기</a>
+                  </p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 blog" >
+                <div class="content-panel">
+                    <dl class="dl-horizontal">
+                        <dt>닉네임</dt>
+                        <dd ng-bind="user.username"></dd>
+                        <dt>이메일</dt>
+                        <dd ng-bind="user.email"></dd>
+                        <dt>지역</dt>
+                        <dd ng-bind="user.location"></dd>
+                        <dt>핸드폰 번호</dt>
+                        <dd ng-bind="user.phone_number"></dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>

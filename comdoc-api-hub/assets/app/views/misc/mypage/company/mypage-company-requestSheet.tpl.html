@@ -1,0 +1,35 @@
+<div class="top-parallax" ng-include src="'app/views/structure/top.tpl.html'" parallax parallax-ratio="0.2"></div>
+
+<article class="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="content-panel-title">
+                    <h2>견적 요청 목록</h2>
+                </div>
+                <div class="content-panel">
+                  <p>
+                    <a class="btn btn-large btn-block btn-info" href="{{ Root }}/mypage/company">내 견적 정보</a>
+                  </p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 blog" >
+              <div class="content-panel" ng-repeat="item in items">
+                <dl class="dl-horizontal">
+                  <dt>지역</dt>
+                  <dd ng-bind="item.location"></dd>
+                  <dt>핸드폰 번호</dt>
+                  <dd ng-bind="item.requester_phone"></dd>
+                  <dt>고장유형</dt>
+                  <dd ng-bind="item.trouble_type"></dd>
+                  <dt>등록일자</dt>
+                  <dd ng-bind="item.created_date"></dd>
+                </dl>
+
+                <a class="pull-right btn blue" href="{{ Root }}/mypage/company/request_sheet/detail/{{ item.id }}">자세히 보기</a>
+                <a class="pull-right btn purple" ng-hide="item.include != company_id">고객요청</a>
+              </div>
+            </div>
+        </div>
+    </div>
+</article>

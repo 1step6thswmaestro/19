@@ -1,0 +1,39 @@
+<div class="top-parallax" ng-include src="'app/views/structure/top.tpl.html'" parallax parallax-ratio="0.2"></div>
+
+<article class="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="content-panel-title">
+                    <h2>내 견적 정보</h2>
+                </div>
+                <div class="content-panel">
+                  <p>
+                    <a class="btn btn-large btn-block btn-info" href="{{ Root }}/mypage/company/request_sheet">견적 요청 목록</a>
+                  </p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 blog">
+                <div class="content-panel" ng-repeat="item in items">
+                    <dl class="dl-horizontal">
+                        <dt>예상가격</dt>
+                        <dd ng-bind="item.expect_price"></dd>
+                        <dt>예상수리기간</dt>
+                        <dd ng-bind="item.expect_period"></dd>
+                        <dt>방문시각</dt>
+                        <dd ng-bind="item.visit_time"></dd>
+                        <dt>담당자</dt>
+                        <dd ng-bind="item.engineer"></dd>
+                    </dl>
+
+                    <a class="pull-right btn blue" href="{{ Root }}/mypage/company/sheet/detail/{{ item.id }}">자세히 보기</a>
+                    <a class="pull-right btn green" ng-hide="item.status != 2">채택완료</a>
+                    <a class="pull-right btn red" ng-hide="item.status != 1">채택거절</a>
+                    <a class="pull-right btn yellow" ng-hide="item.status != 0">응답대기중</a>
+                    <a class="pull-right btn green" ng-hide="item.request_sheet.matching_status != 2 || item.status != 2">수리완료</a>
+                    <a class="pull-right btn yellow" ng-hide="item.request_sheet.matching_status != 1 || item.status != 2">수리중</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>

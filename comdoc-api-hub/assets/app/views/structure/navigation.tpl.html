@@ -7,20 +7,36 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" ng-href="{{ Root }}">{{ brand }}</a>
+			<a class="navbar-brand" ng-href="{{ Root }}" ng-if="!mobile && !mobilehome">{{ brand }}</a>
+			<a class="navbar-brand" ng-href="{{ Root }}/mobile/mypage" ng-if="mobile || mobilehome">{{ brand }} - Company</a>
 		</div>
-		<div class="collapse navbar-collapse" collapse="isCollapsed">
+		<div class="collapse navbar-collapse" collapse="isCollapsed" ng-if="!mobile && !mobilehome">
 			<ul class="nav navbar-nav navbar-right">
 				<li ng-repeat="item in menu.items" class="dropdown" dropdown on-toggle="toggled(open)">
-					<a ng-hide="item.dropdown" ng-href="{{ item.link }}">{{ item.name }}</a>
+					<a ng-click="item.click()" ng-hide="item.mobile || item.dropdown || item.userPage || item.companyPage || (item.needAuth && !(user || company)) || (item.BeforeLogIn && (user || company))" ng-href="{{ item.link }}">{{ item.name }}</a>
 					<a ng-show="item.dropdown" href class="dropdown-toggle" dropdown-toggle>
-						{{ item.name }} <b class="caret"></b>
+						{{ item.name }} <b class="caret"></b> 
 					</a>
+					<a ng-if="!item.mobile && item.needAuth && item.userPage && user" href class="dropdown-toggle" dropdown-toggle>
+						{{ item.name }} <b class="caret"></b> 
+					</a>
+					<a ng-if="!item.mobile && item.needAuth && item.companyPage && company" href class="dropdown-toggle" dropdown-toggle>
+						{{ item.name }} <b class="caret"></b> 
+					</a>
+
 					<ul class="dropdown-menu">
 						<li ng-repeat="item in item.items">
 							<a href="{{ item.link }}">{{ item.name }}</a>
 						</li>
 					</ul>
+				</li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+		<div class="collapse navbar-collapse" collapse="isCollapsed" ng-if="mobile && !mobilehome">
+			<ul class="nav navbar-nav navbar-right">
+				<li ng-repeat="item in menu.items" class="dropdown" dropdown on-toggle="toggled(open)">
+					<a ng-click="item.click()" ng-hide="!item.mobile" ng-href="{{ item.link }}">{{ item.name }}</a>
+
 				</li>
 			</ul>
 		</div><!-- /.navbar-collapse -->

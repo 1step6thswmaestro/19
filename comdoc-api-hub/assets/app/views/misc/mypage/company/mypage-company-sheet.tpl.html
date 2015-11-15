@@ -1,0 +1,124 @@
+<div class="top-parallax" ng-include src="'app/views/structure/top.tpl.html'" parallax parallax-ratio="0.2"></div>
+
+<article class="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="content-panel-title">
+                    <h2>견적 제안</h2>
+                </div>
+                <div class="content-panel">
+                  <p>
+                    <a class="btn btn-large btn-block btn-info" href="{{ Root }}/mypage/company/request_sheet">견적 요청 목록</a>
+                  </p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 blog">
+                <div class="content-panel">
+                <form ng-submit="submitCompanySheetForm()" name="companySheet">
+
+                    <!-- engineer -->
+
+                    <div class="control-group form-group col-md-12"
+                      ng-class="{'has-error':companySheet.engineer.$invalid &&
+                                            companySheet.engineer.$dirty}">
+                      <label>* 수리기사 이름</label>
+                      <input type="text" class="form-control" placeholder="e.g. 홍길동" name="engineer" ng-model="companySheetForm.engineer" ng-maxlength="5" required>
+                      <span class="help-block has-error" ng-if="companySheet.engineer.$dirty">
+                        <span ng-show="companySheet.engineer.$error.required">engineer is required.</span>
+                        <span ng-show="companySheet.engineer.$error.maxlength">engineer cannot be more than 5 characters.</span>
+                      </span>
+                    </div>
+
+                    <!-- engineer_phone -->
+
+                    <div class="control-group form-group col-md-12"
+                      ng-class="{'has-error':companySheet.engineer_phone.$invalid &&
+                                            companySheet.engineer_phone.$dirty}">
+                      <label>* 수리기사 연락처</label>
+                      <input type="text" class="form-control" name="engineer_phone" ng-model="companySheetForm.engineer_phone" placeholder="e.g. 010-1234-1234" ng-maxlength="13" required>
+                      <span class="help-block has-error" ng-if="companySheet.engineer_phone.$dirty">
+                        <span ng-show="companySheet.engineer_phone.$error.required">phone number is required.</span>
+                        <span ng-show="companySheet.engineer_phone.$error.maxlength">The phone number cannot be more than 13 characters.</span>
+                      </span>
+                    </div>
+
+                    <!-- expect_period -->
+
+                    <div class="control-group form-group col-md-12"
+                      ng-class="{'has-error':companySheet.expect_period.$invalid &&
+                                            companySheet.expect_period.$dirty}">
+                      <label>* 수리 예상 시간</label>
+                      <select class="form-control" name="expect_period" ng-model="companySheetForm.expect_period" required>
+                        <option>1시간 이내</option>
+                        <option>1시간~2시간</option>
+                        <option>2시간~3시간</option>
+                        <option>당일처리 (회수)</option>
+                        <option>미확정 (회수)</option>
+                      </select>
+                      <span class="help-block has-error" ng-if="companySheet.expect_period.$dirty">
+                        <span ng-show="companySheet.expect_period.$error.required">expect_period is required.</span>
+                      </span>
+                    </div>
+
+                    <!-- visit_time -->
+
+                    <div class="control-group form-group col-md-12"
+                      ng-class="{'has-error':companySheet.visit_time.$invalid &&
+                                            companySheet.visit_time.$dirty}">
+                      <label>* 방문 시각</label>
+                      <div class="dropdown">
+                        <a class="dropdown-toggle" id="dropdown1" role="button" data-toggle="dropdown" data-target="#"
+                           href="#">
+                            <div class="input-group">
+                                <input type="text" name="visit_time" class="form-control" data-ng-model="companySheetForm.visit_time" required>
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                            </div>
+                        </a>
+                          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                              <datetimepicker data-ng-model="companySheetForm.visit_time"
+                                              data-datetimepicker-config="{ dropdownSelector: '#dropdown1' }"></datetimepicker>
+                          </ul>
+                        </div>
+                      </div>
+
+
+                    <!-- expect_price -->
+
+                    <div class="control-group form-group col-md-12"
+                      ng-class="{'has-error':companySheet.expect_price.$invalid &&
+                                            companySheet.expect_price.$dirty}">
+                      <label>* 예상 가격 (단위: 원)</label>
+                      <input type="text" class="form-control" placeholder="e.g. 30000" name="expect_price" ng-model="companySheetForm.expect_price" ng-maxlength="13" required>
+                      <span class="help-block has-error" ng-if="companySheet.expect_price.$dirty">
+                        <span ng-show="companySheet.expect_price.$error.required">expect_price is required.</span>
+                        <span ng-show="companySheet.expect_price.$error.maxlength">expect_price cannot be more than 13 characters.</span>
+                      </span>
+                    </div>
+
+                    <!-- comment -->
+
+                    <div class="control-group form-group col-md-12"
+                      ng-class="{'has-error':companySheet.comment.$invalid &&
+                                            companySheet.comment.$dirty}">
+                      <label>코멘트</label>
+                      <textarea class="form-control" style="resize: none;" cols="30" rows="3" placeholder="수리관련 코멘트를 상세하게 작성하세요." name="comment" ng-model="companySheetForm.comment"></textarea>
+                      <span class="help-block has-error" ng-if="companySheet.comment.$dirty">
+                      </span>
+                    </div>
+
+
+                    <!-- Disable submit button until the form has no errors -->
+                    <button class="btn btn-primary btn-lg btn-block" type="submit" ng-disabled="companySheet.$invalid">
+                      <span ng-show="!companySheetForm.loading">견적 제안하기</span>
+                      <span class="overlord-loading-spinner fa fa-spinner" ng-show="companySheetForm.loading" ></span>
+                      <span ng-show="companySheetForm.loading">견적 제안 보내는중...</span>
+                    </button>
+
+                    <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+</article>

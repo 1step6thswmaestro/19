@@ -1,0 +1,196 @@
+<div class="top-parallax" ng-include src="'app/views/structure/top.tpl.html'" parallax parallax-ratio="0.2"></div>
+
+<article class="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="content-panel-title">
+                    <h2>견적 요청</h2>
+                </div>
+                <div class="content-panel">
+                  <p>
+                    <a class="btn btn-large btn-block btn-info" href="{{ Root }}/mypage/user">내 견적 정보</a>
+                  </p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 blog">
+                <div class="content-panel">
+                <form ng-submit="submitUserSheetForm()" name="userSheet" method="post">
+
+                    <!-- P H O N E  N U M B E R -->
+
+                    <div class="control-group form-group col-md-12"
+                      ng-class="{'has-error':userSheet.requester_phone.$invalid &&
+                                            userSheet.requester_phone.$dirty}">
+                      <label>* 연락처</label>
+                      <input type="text" class="form-control" name="requester_phone" ng-model="userSheetForm.requester_phone" ng-init="userSheetForm.requester_phone = user_phone_number" ng-maxlength="13" required>
+                      <span class="help-block has-error" ng-if="userSheet.requester_phone.$dirty">
+                        <span ng-show="userSheet.requester_phone.$error.required">phone number is required.</span>
+                        <span ng-show="userSheet.requester_phone.$error.maxlength">The phone number cannot be more than 13 characters.</span>
+                      </span>
+                    </div>
+
+                    <!-- L O C A T I O N -->
+
+                    <div class="control-group form-group col-md-12"
+                      ng-class="{'has-error':userSheet.location.$invalid &&
+                                            userSheet.location.$dirty}">
+                      <label>* 지역</label>
+                      <select class="form-control" name="location" ng-model="userSheetForm.location" ng-init="userSheetForm.location = user_location"required>
+                        <option>서울시 강남구</option>
+                        <option>서울시 강동구</option>
+                        <option>서울시 강북구</option>
+                        <option>서울시 강서구</option>
+                        <option>서울시 관악구</option>
+                        <option>서울시 광진구</option>
+                        <option>서울시 구로구</option>
+                        <option>서울시 금천구</option>
+                        <option>서울시 노원구</option>
+                        <option>서울시 도봉구</option>
+                        <option>서울시 동대문구</option>
+                        <option>서울시 동작구</option>
+                        <option>서울시 마포구</option>
+                        <option>서울시 서대문구</option>
+                        <option>서울시 서초구</option>
+                        <option>서울시 성동구</option>
+                        <option>서울시 성북구</option>
+                        <option>서울시 송파구</option>
+                        <option>서울시 양천구</option>
+                        <option>서울시 영등포구</option>
+                        <option>서울시 용산구</option>
+                        <option>서울시 은평구</option>
+                        <option>서울시 종로구</option>
+                        <option>서울시 중구</option>
+                        <option>서울시 중랑구</option>
+                      </select>
+                      <span class="help-block has-error" ng-if="userSheet.location.$dirty">
+                        <span ng-show="userSheet.location.$error.required">location is required.</span>
+                      </span>
+                    </div>
+
+                    <!-- A D D R E S S -->
+
+                    <div class="control-group form-group col-md-12"
+                      ng-class="{'has-error':userSheet.address.$invalid &&
+                                            userSheet.address.$dirty}">
+                      <label>* 나머지 주소</label>
+                      <input type="text" class="form-control" placeholder="e.g. 테헤란로 311, 아남타워 6층 소마연수센터" name="address" ng-model="userSheetForm.address" required>
+                      <span class="help-block has-error" ng-if="userSheet.address.$dirty">
+                        <span ng-show="userSheet.address.$error.required">address is required.</span>
+                      </span>
+                    </div>
+
+                    <!-- C O P U T E R  T Y P E -->
+
+                    <div class="control-group form-group col-md-12"
+                      ng-class="{'has-error':userSheet.computer_type.$invalid &&
+                                            userSheet.computer_type.$dirty}">
+                      <label>* 컴퓨터 유형</label>
+                      <select class="form-control" name="computer_type" ng-model="userSheetForm.computer_type" required>
+                        <option>데스크탑</option>
+                        <option>노트북</option>
+                      </select>
+                      <span class="help-block has-error" ng-if="userSheet.computer_type.$dirty">
+                        <span ng-show="userSheet.computer_type.$error.required">computer_type is required.</span>
+                      </span>
+                    </div>
+
+                    <!-- A V A I L A B L E  T I M E -->
+
+                    <div class="control-group form-group col-md-12"
+                      ng-class="{'has-error':userSheet.available_time.$invalid &&
+                                            userSheet.available_time.$dirty}">
+                      <label>* 가능한 시간대</label>
+                      <select class="form-control" name="available_time" ng-model="userSheetForm.available_time" required>
+                        <option>평일오전(9시~12시)</option>
+                        <option>평일오후(12시~5시)</option>
+                        <option>평일저녁(5시~9시)</option>
+                        <option>주말오전(9시~12시)</option>
+                        <option>주말오후(12시~5시)</option>
+                        <option>주말저녁(5시~9시)</option>
+                      </select>
+                      <span class="help-block has-error" ng-if="userSheet.available_time.$dirty">
+                        <span ng-show="userSheet.available_time.$error.required">available_time is required.</span>
+                      </span>
+                    </div>
+
+                    <!-- U S E D  Y E A R -->
+
+                    <div class="control-group form-group col-md-12"
+                      ng-class="{'has-error':userSheet.used_year.$invalid &&
+                                            userSheet.used_year.$dirty}">
+                      <label>구입년식</label>
+                      <select class="form-control" name="used_year" ng-model="userSheetForm.used_year">
+                        <option>1년 이하</option>
+                        <option>1년~2년</option>
+                        <option>2년~3년</option>
+                        <option>3년이상</option>
+                      </select>
+                      <span class="help-block has-error" ng-if="userSheet.used_year.$dirty">
+                        <span ng-show="userSheet.used_year.$error.required">used_year is required.</span>
+                      </span>
+                    </div>
+
+                    <!-- B R A N D -->
+
+                    <div class="control-group form-group col-md-12"
+                      ng-class="{'has-error':userSheet.brand.$invalid &&
+                                            userSheet.brand.$dirty}">
+                      <label>브랜드명</label>
+                      <select class="form-control" name="brand" ng-model="userSheetForm.brand">
+                        <option>삼성</option>
+                        <option>LG</option>
+                        <option>TG</option>
+                        <option>HP</option>
+                        <option>조립식PC</option>
+                        <option>기타</option>
+                      </select>
+                      <span class="help-block has-error" ng-if="userSheet.brand.$dirty">
+                        <span ng-show="userSheet.brand.$error.required">brand is required.</span>
+                      </span>
+                    </div>
+
+                    <!-- T R O U B L E  T Y P E -->
+
+                    <div class="control-group form-group col-md-12"
+                      ng-class="{'has-error':userSheet.trouble_type.$invalid &&
+                                            userSheet.trouble_type.$dirty}">
+                      <label>* 컴퓨터 고장 유형</label>
+                      <select class="form-control" name="trouble_type" ng-model="userSheetForm.trouble_type" required>
+                        <option>컴퓨터 전원이 들어오지 않음</option>
+                        <option>컴퓨터 성능이 현저히 저하됌</option>
+                        <option>인터넷이 안됌</option>
+                        <option>알 수 없는 화면이 뜸</option>
+                        <option>기타</option>
+                      </select>
+                      <span class="help-block has-error" ng-if="userSheet.trouble_type.$dirty">
+                        <span ng-show="userSheet.trouble_type.$error.required">trouble_type is required.</span>
+                      </span>
+                    </div>
+
+                    <!-- T R O U B L E  D E T A I L -->
+
+                    <div class="control-group form-group col-md-12"
+                      ng-class="{'has-error':userSheet.trouble_detail.$invalid &&
+                                            userSheet.trouble_detail.$dirty}">
+                      <label>컴퓨터 고장 상세 정보</label>
+                      <textarea class="form-control" style="resize: none;" cols="30" rows="3" placeholder="고장 이슈를 상세하게 기술하세요." name="trouble_detail" ng-model="userSheetForm.trouble_detail"></textarea>
+                      <span class="help-block has-error" ng-if="userSheet.trouble_detail.$dirty">
+                      </span>
+                    </div>
+
+
+                    <!-- Disable submit button until the form has no errors -->
+                    <button class="btn btn-primary btn-lg btn-block" type="submit" ng-disabled="userSheet.$invalid">
+                      <span ng-show="!userSheetForm.loading">견적 요청하기</span>
+                      <span class="overlord-loading-spinner fa fa-spinner" ng-show="userSheetForm.loading" ></span>
+                      <span ng-show="userSheetForm.loading">견적 요청 보내는중...</span>
+                    </button>
+
+                    <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+</article>

@@ -1,0 +1,44 @@
+<div class="top-parallax" ng-include src="'app/views/structure/top.tpl.html'" parallax parallax-ratio="0.2"></div>
+
+<article class="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="content-panel-title">
+                    <h2>수리 사례</h2>
+                </div>
+                <div class="content-panel">
+                  <p>
+                    <a class="btn btn-large btn-block btn-info" href="{{ Root }}/repaircase">수리사례 목록</a>
+                  </p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 blog" >
+              <div class="content-panel" ng-repeat="item in items">
+                    <dl class="dl-horizontal">
+                        <dt>고장유형</dt>
+                        <dd ng-bind="item.trouble_type"></dd>
+                        <dt>컴퓨터유형</dt>
+                        <dd ng-bind="item.computer_type"></dd>
+                        <dt>업체명</dt>
+                        <dd ng-bind="item.company_name"></dd>
+                        <dt>지역</dt>
+                        <dd ng-bind="item.sheet_location"></dd>
+                        <dt>별점</dt>
+                        <dd> 
+                        <i class="fa fa-fw" ng-hide="item.review_point != 1"></i>
+                        <i class="fa fa-fw" ng-hide="item.review_point != 2"></i>
+                        <i class="fa fa-fw" ng-hide="item.review_point != 3"></i>
+                        <i class="fa fa-fw" ng-hide="item.review_point != 4"></i>
+                        <i class="fa fa-fw" ng-hide="item.review_point != 5"></i>
+                        </dd>
+                    </dl>
+
+                    <a class="pull-right btn blue" href="{{ Root }}/repaircase/list/detail/{{ trouble_type }}/{{ item.sheet_id }}">자세히 보기</a>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</article>

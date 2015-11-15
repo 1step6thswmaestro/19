@@ -1,0 +1,30 @@
+<div class="top-parallax" ng-include src="'app/views/structure/top.tpl.html'" parallax parallax-ratio="0.2"></div>
+
+<article class="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="content-panel-title">
+                    <h2>수리 사례</h2>
+                </div>
+                <div class="content-panel">
+                  <p>
+                    <a class="btn btn-large btn-block btn-info" ng-click="route()">견적 요청하기</a>
+                  </p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 blog" >
+              <div class="content-panel">
+                <p>
+                  <a class="btn btn-large btn-block btn-info" href="{{ Root }}/repaircase/list/1">컴퓨터 전원이 들어오지 않음</a>
+                  <a class="btn btn-large btn-block btn-info" href="{{ Root }}/repaircase/list/2">컴퓨터 성능이 현저히 저하됌</a>
+                  <a class="btn btn-large btn-block btn-info" href="{{ Root }}/repaircase/list/3">인터넷이 안됌</a>
+                  <a class="btn btn-large btn-block btn-info" href="{{ Root }}/repaircase/list/4">알 수 없는 화면이 뜸</a>
+                  <a class="btn btn-large btn-block btn-info" href="{{ Root }}/repaircase/list/5">기타</a>
+                </p> 
+              </div>
+
+            </div>
+        </div>
+    </div>
+</article>

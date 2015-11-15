@@ -1,0 +1,124 @@
+<div class="top-parallax" ng-include src="'app/views/structure/top.tpl.html'" parallax parallax-ratio="0.2"></div>
+
+<article class="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="content-panel-title">
+                    <h2>수리 완료</h2>
+                </div>
+                <div class="content-panel">
+                  <p>
+                    <a class="btn btn-large btn-block btn-info" href="{{ Root }}/mypage/user">내 견적 정보</a>
+                  </p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 blog" >
+                <div class="content-panel-title">
+                    <h2>서비스에 만족하셨나요?<br>리뷰를 등록해주세요!</h2>
+                </div>
+
+                <div class="content-panel">
+                    <form ng-submit="submitUserSheetForm()" name="userSheet">
+
+                        <!-- final_start_date -->
+
+                        <div class="control-group form-group col-md-12"
+                          ng-class="{'has-error':userSheet.point.$invalid &&
+                                                userSheet.point.$dirty}">
+                          <label>실제 출장수리 시작 시각</label>
+                          <div class="dropdown">
+                        <a class="dropdown-toggle" id="dropdown1" role="button" data-toggle="dropdown" data-target="#"
+                           href="#">
+                            <div class="input-group">
+                                <input type="text" name="final_start_date" class="form-control" data-ng-model="userSheetForm.final_start_date" required>
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                            </div>
+                        </a>
+                          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                              <datetimepicker data-ng-model="userSheetForm.final_start_date"
+                                              data-datetimepicker-config="{ dropdownSelector: '#dropdown1' }"></datetimepicker>
+                          </ul>
+                        </div>
+                        </div>
+
+                        <!-- final_end_date -->
+
+                        <div class="control-group form-group col-md-12"
+                          ng-class="{'has-error':userSheet.point.$invalid &&
+                                                userSheet.point.$dirty}">
+                          <label>실제 출장수리 완료 시각</label>
+                          <div class="dropdown">
+                        <a class="dropdown-toggle" id="dropdown1" role="button" data-toggle="dropdown" data-target="#"
+                           href="#">
+                            <div class="input-group">
+                                <input type="text" name="final_end_date" class="form-control" data-ng-model="userSheetForm.final_end_date" required>
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                            </div>
+                        </a>
+                          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                              <datetimepicker data-ng-model="userSheetForm.final_end_date"
+                                              data-datetimepicker-config="{ dropdownSelector: '#dropdown1' }"></datetimepicker>
+                          </ul>
+                        </div>
+                        </div>
+
+                        <!-- final_price -->
+
+                        <div class="control-group form-group col-md-12"
+                          ng-class="{'has-error':userSheet.point.$invalid &&
+                                                userSheet.point.$dirty}">
+                          <label>실제 수리비용 (단위: 원)</label>
+                          <input type="text" class="form-control" placeholder="e.g. 30000" name="final_price" ng-model="userSheetForm.final_price" ng-maxlength="13" required>
+                      <span class="help-block has-error" ng-if="userSheet.final_price.$dirty">
+                        <span ng-show="userSheet.final_price.$error.required">final_price is required.</span>
+                        <span ng-show="userSheet.final_price.$error.maxlength">final_price cannot be more than 13 characters.</span>
+                      </span>
+                        </div>
+
+
+                        <!-- P O I N T -->
+
+                        <div class="control-group form-group col-md-12"
+                          ng-class="{'has-error':userSheet.point.$invalid &&
+                                                userSheet.point.$dirty}">
+                          <label>* 별점</label>
+                          <select class="form-control" name="point" ng-model="userSheetForm.point" required>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                          </select>
+                          <span class="help-block has-error" ng-if="userSheet.point.$dirty">
+                            <span ng-show="userSheet.point.$error.required">point is required.</span>
+                          </span>
+                        </div>
+
+
+                        <!-- C O M M E N T -->
+
+                        <div class="control-group form-group col-md-12"
+                          ng-class="{'has-error':userSheet.comment.$invalid &&
+                                                userSheet.comment.$dirty}">
+                          <label>* 코멘트</label>
+                          <textarea class="form-control" style="resize: none;" cols="30" rows="3" placeholder="리뷰를 상세하게 기술하세요." name="comment" ng-model="userSheetForm.comment"></textarea>
+                          <span class="help-block has-error" ng-if="userSheet.comment.$dirty">
+                          </span>
+                        </div>
+
+
+                        <!-- Disable submit button until the form has no errors -->
+                        <button class="btn btn-primary btn-lg btn-block" type="submit" ng-disabled="userSheet.$invalid">
+                          <span ng-show="!userSheetForm.loading">리뷰 등록하기</span>
+                          <span class="overlord-loading-spinner fa fa-spinner" ng-show="userSheetForm.loading" ></span>
+                          <span ng-show="userSheetForm.loading">리뷰 등록하는중...</span>
+                        </button>
+
+                        <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>

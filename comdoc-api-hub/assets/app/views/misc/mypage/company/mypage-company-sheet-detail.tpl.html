@@ -1,0 +1,82 @@
+<div class="top-parallax" ng-include src="'app/views/structure/top.tpl.html'" parallax parallax-ratio="0.2"></div>
+
+<article class="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="content-panel-title">
+                    <h2>견적 제안서</h2>
+                </div>
+                <div class="content-panel">
+                  <p>
+                    <a class="btn btn-large btn-block btn-info" href="{{ Root }}/mypage/company">내 견적 정보</a>
+                  </p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 blog" >
+                <div class="content-panel">
+                    <h3>나의 견적 제안서<br><br></h3>
+                    <dl class="dl-horizontal">
+                        <dt>예상가격</dt>
+                        <dd ng-bind="the_item.expect_price"></dd>
+                        <dt>예상수리기간</dt>
+                        <dd ng-bind="the_item.expect_period"></dd>
+                        <dt>방문시각</dt>
+                        <dd ng-bind="the_item.visit_time"></dd>
+                        <dt>담당자</dt>
+                        <dd ng-bind="the_item.engineer"></dd>
+                        <dt>담당자연락처</dt>
+                        <dd ng-bind="the_item.engineer_phone"></dd>
+                        <dt>코멘트</dt>
+                        <dd ng-bind="the_item.comment"></dd>
+                    </dl>
+                </div>
+
+                <div class="content-panel">
+                    <h3>대상 견적 요청서<br><br></h3>
+                    <dl class="dl-horizontal">
+                        <dt>지역</dt>
+                        <dd ng-bind="request_sheet.location"></dd>
+                        <dt>상세주소</dt>
+                        <dd ng-bind="request_sheet.address"></dd>
+                        <dt>핸드폰 번호</dt>
+                        <dd ng-bind="request_sheet.requester_phone"></dd>
+                        <dt>컴퓨터 유형</dt>
+                        <dd ng-bind="request_sheet.computer_type"></dd>
+                        <dt>브랜드</dt>
+                        <dd ng-bind="request_sheet.brand"></dd>
+                        <dt>년식</dt>
+                        <dd ng-bind="request_sheet.used_year"></dd>
+                        <dt>고장유형</dt>
+                        <dd ng-bind="request_sheet.trouble_type"></dd>
+                        <dt>상세설명</dt>
+                        <dd ng-bind="request_sheet.trouble_detail"></dd>
+                        <dt>방문가능시간</dt>
+                        <dd ng-bind="request_sheet.available_time"></dd>
+                        <dt>등록일자</dt>
+                        <dd ng-bind="request_sheet.created_date"></dd>
+                    </dl>
+                </div>
+
+                <a class="pull-right btn blue" ng-hide="!(the_item.status == 0)" ng-click="the_item.click(the_item.id)">제안취소하기</a>
+
+                <div class="content-panel">
+                    <h3 ng-hide="!review.point || the_item.status != 2">리뷰<br><br></h3>
+                    <dl class="dl-horizontal">
+                        <dt ng-hide="!review.point || the_item.status != 2">별점</dt>
+                        <dd> 
+                        <i class="fa fa-fw" ng-hide="review.point != 1 || the_item.status != 2"></i>
+                        <i class="fa fa-fw" ng-hide="review.point != 2 || the_item.status != 2"></i>
+                        <i class="fa fa-fw" ng-hide="review.point != 3 || the_item.status != 2"></i>
+                        <i class="fa fa-fw" ng-hide="review.point != 4 || the_item.status != 2"></i>
+                        <i class="fa fa-fw" ng-hide="review.point != 5 || the_item.status != 2"></i>
+                        </dd>
+                        <dt ng-hide="!review.comment || the_item.status != 2">코멘트</dt>
+                        <dd ng-bind="review.comment" ng-hide="the_item.status != 2"></dd>
+                    </dl>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</article>

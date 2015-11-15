@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/landingActivity_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#62000000">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/ic_logo_promo" />
+
+            <TextView
+                android:id="@+id/promoTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="@dimen/value_20dp"
+                android:gravity="center_horizontal"
+                android:padding="@dimen/value_10dp"
+                android:text="@string/promo_text"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/value_15sp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/value_10dp"
+            android:orientation="vertical"
+            android:padding="@dimen/value_20dp">
+
+            <TextView
+                android:id="@+id/btnSignUp"
+                style="@style/btnDeepSelection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/value_20dp"
+                android:text="@string/sign_up_string" />
+
+            <TextView
+                android:id="@+id/btnSeeFirst"
+                style="@style/btnFillSelection_whiteStroke"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/value_20dp"
+                android:text="@string/see_first_string" />
+
+            <TextView
+                android:id="@+id/btnHaveAccountTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:clickable="true"
+                android:maxLines="2"
+                android:text="@string/have_account_string"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/value_15sp" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,46 @@
+<div class="top-parallax" ng-include src="'app/views/structure/top.tpl.html'" parallax parallax-ratio="0.2"></div>
+
+<article class="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="content-panel-title">
+                    <h2>견적 요청서</h2>
+                </div>
+                <div class="content-panel">
+                  <p>
+                    <a class="btn btn-large btn-block btn-info" href="{{ Root }}/mypage/company">내 견적 정보</a>
+                  </p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 blog" >
+                <div class="content-panel">
+                    <dl class="dl-horizontal">
+                        <dt>지역</dt>
+                        <dd ng-bind="the_item.location"></dd>
+                        <dt>상세주소</dt>
+                        <dd ng-bind="the_item.address"></dd>
+                        <dt>핸드폰 번호</dt>
+                        <dd ng-bind="the_item.requester_phone"></dd>
+                        <dt>컴퓨터 유형</dt>
+                        <dd ng-bind="the_item.computer_type"></dd>
+                        <dt>브랜드</dt>
+                        <dd ng-bind="the_item.brand"></dd>
+                        <dt>년식</dt>
+                        <dd ng-bind="the_item.used_year"></dd>
+                        <dt>고장유형</dt>
+                        <dd ng-bind="the_item.trouble_type"></dd>
+                        <dt>상세설명</dt>
+                        <dd ng-bind="the_item.trouble_detail"></dd>
+                        <dt>방문가능시간</dt>
+                        <dd ng-bind="the_item.available_time"></dd>
+                        <dt>등록일자</dt>
+                        <dd ng-bind="the_item.created_date"></dd>
+                    </dl>
+
+                    <a class="pull-right btn blue" href="{{ Root }}/mypage/company/sheet/{{ the_item.id }}">견적 제안하기</a>
+                <div>
+            </div>
+        </div>
+    </div>
+</article>
